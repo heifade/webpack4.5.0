@@ -20,13 +20,31 @@ let config: webpack.Configuration = {
       {
         test: /\.tsx?$/,
         loaders: ["ts-loader"]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader"
+          },
+          {
+            loader: "less-loader",
+            options: {
+              modules: true
+            }
+          }
+        ]
       }
     ]
   },
-  plugins: [new htmlWebpackPlugin()],
+  plugins: [
+    new htmlWebpackPlugin(),
+  ],
   devServer: {
     port: 9000,
-    open: true
+    open: true,
+    publicPath: "/",
   }
   // externals: {
   //   react: "React",
