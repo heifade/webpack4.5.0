@@ -18,6 +18,10 @@ let config: webpack.Configuration = {
   module: {
     rules: [
       {
+        test: /\.(woff|woff2|eot|ttf|otf|png|gif|jpg)$/,
+        loader: "file-loader"
+      },
+      {
         test: /\.tsx?$/,
         loaders: ["ts-loader"]
       },
@@ -38,13 +42,11 @@ let config: webpack.Configuration = {
       }
     ]
   },
-  plugins: [
-    new htmlWebpackPlugin(),
-  ],
+  plugins: [new htmlWebpackPlugin()],
   devServer: {
     port: 9000,
     open: true,
-    publicPath: "/",
+    publicPath: "/"
   }
   // externals: {
   //   react: "React",

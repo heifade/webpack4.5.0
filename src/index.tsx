@@ -10,6 +10,7 @@ ReactDOM.render(
     <div>标题</div>
     <div>菜单</div>
     <div>内容</div>
+    <div className="pic"></div>
   </div>,
   div
 );
