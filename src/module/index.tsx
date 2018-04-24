@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-// import styles from "./index.less";
+// import * as styles from "./index.css";
 import { addValue } from "./utils";
 let styles = require("./index.less");
 
