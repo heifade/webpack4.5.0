@@ -9,8 +9,8 @@ let config: webpack.Configuration = {
   mode: "production",
   context: path.resolve(__dirname),
   entry: {
-    index: "./src/index",
-    utils: "./src/utils"
+    index: "./src/module/index",
+    utils: "./src/module/utils"
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -31,7 +31,30 @@ let config: webpack.Configuration = {
       { test: /\.tsx?$/, loader: "ts-loader" },
       {
         test: /\.less$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }, { loader: "less-loader" }]
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true
+            }
+          },
+          {
+            loader: "less-loader"
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true
+            }
+          }
+        ]
       },
       {
         test: /\.xml$/,
@@ -64,7 +87,7 @@ let config: webpack.Configuration = {
     // new UglifyjsWebpackPlugin({sourceMap: true}),
     new HtmlWebpackPlugin({
       title: "Webpack 4.5.0",
-      template: "./src/index.html"
+      template: "./src/public/index.html"
     })
 
     // new webpack.optimize.CommonsChunkPlugin({

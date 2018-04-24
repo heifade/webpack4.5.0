@@ -1,17 +1,18 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "./index.less";
+// import styles from "./index.less";
 import { addValue } from "./utils";
+let styles = require("./index.less");
 
 let div = document.createElement("div");
 document.body.appendChild(div);
 
 ReactDOM.render(
-  <div className={"main-frame"}>
+  <div className={styles["main-frame"]}>
     <div>标题</div>
     <div>菜单</div>
     <div>内容</div>
-    <div className="pic">{"name"}</div>
+    <div className={styles["pic"]}>{"name"}</div>
   </div>,
   div
 );
